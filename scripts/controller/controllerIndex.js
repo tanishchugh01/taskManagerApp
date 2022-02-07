@@ -1,17 +1,18 @@
-window.addEventListener('load',myMain)
+import Task  from "../model/task.js";
 
-function myMain()
-{
-    addtask();
+// window.addEventListener("load", myMain);
+
+function myMain() {
+    addTask();
 }
 
-function addTask()
-{
-    var id= document.querySelector('id');
-    var name=document.querySelector('name');
-    var desc=document.querySelector('desc');
-    var date=document.querySelector('date');
-    var url=document.querySelector('url');
-    
+function addTask() {
+    var id = document.querySelector("id");
+    var name = document.querySelector("name");
+    var desc = document.querySelector("desc");
+    var date = document.querySelector("date");
+    var url = document.querySelector("url");
 }
 
+console.log("running");
+console.log(Task);
