@@ -5,15 +5,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Task Manager</title>
+
+        <!-- bootstrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous"
         />
-        <script src="scripts/controller/controllerIndex.js" type="module"></script>
+
+        <!-- icons -->
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+
+        <script
+            src="scripts/controller/controllerIndex.js"
+            type="module"
+        ></script>
     </head>
-    
+
     <body>
         <!-- <button class="btn btn-info">tanish</button> -->
         <div class="text-center fw-bold text-danger bg-info fs-1">
@@ -27,7 +41,7 @@
                 <label class="form-label">ID</label>
                 <div>
                     <input
-                    id="id"
+                        id="id"
                         type="text"
                         class="form-control"
                         placeholder="Type ID here"
@@ -36,7 +50,7 @@
                 <label class="form-label">Name</label>
                 <div>
                     <input
-                    id="name"
+                        id="name"
                         type="text"
                         class="form-control"
                         placeholder="Type name here"
@@ -45,7 +59,7 @@
                 <label class="form-label">Description</label>
                 <div>
                     <textarea
-                    id="desc"
+                        id="desc"
                         type="text"
                         class="form-control"
                         style="height: 100px"
@@ -70,13 +84,23 @@
             <br />
 
             <div class="btn-group">
-                <button id="add" class="btn text-primary border-primary">Add</button>
+                <button id="add" class="btn text-primary border-primary">
+                    Add
+                </button>
                 <button id="delete" class="btn btn-primary">Delete</button>
-                <button id='save' class="btn text-primary border-primary">Save</button>
-                <button id='load' class="btn btn-primary">Load</button>
-                <button id='search'class="btn text-primary border-primary">Search</button>
-                <button id="clearSearch" class="btn btn-primary">Clear Search</button>
-                <button id="clearAll" class="btn text-primary border-primary">Clear All</button>
+                <button id="save" class="btn text-primary border-primary">
+                    Save
+                </button>
+                <button id="load" class="btn btn-primary">Load</button>
+                <button id="search" class="btn text-primary border-primary">
+                    Search
+                </button>
+                <button id="clearSearch" class="btn btn-primary">
+                    Clear Search
+                </button>
+                <button id="clearAll" class="btn text-primary border-primary">
+                    Clear All
+                </button>
             </div>
 
             <br />
@@ -99,8 +123,10 @@
                         <th scope="col">Operations</th>
                     </tr>
                 </thead>
-                
-                <tbody></tbody>
+
+                <tbody id="taskBody">
+                    <!-- Dynamically added through printTasks in conroller.js -->
+                </tbody>
             </table>
         </div>
     </body>
