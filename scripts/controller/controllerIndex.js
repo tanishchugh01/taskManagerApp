@@ -14,8 +14,10 @@ function addTask() {
     var url = document.querySelector("#url").value;
 
     const task = taskOperations.add(id, name, desc, date, url);
+    // returned only last task but is stored in taskOperations.tasks
 
     printTask(task);
+    showCount();
 }
 
 function printTask(task) {
@@ -31,6 +33,26 @@ function printTask(task) {
 
         cellNumber++;
     }
+    
+    var oper=tr.insertCell(cellNumber);
+    
+    oper.appendChild(createIcon('trash'));
+    oper.appendChild(createIcon('pen-to-square'));
+}
+
+function createIcon(name)
+{
+    let icon=document.createElement('i');
+    
+    icon.className=`fa-solid fa-${name}`;
+    return icon;
+}
+
+function  showCount()
+{
+    document.querySelector('#totalRec').innerText=taskOperations.tasks.length;
+    document.querySelector('#markRec').innerText=0;
+    document.querySelector('#unmarkRec').innerText=0;
 }
 
 console.log("running");

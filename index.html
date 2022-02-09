@@ -15,12 +15,9 @@
         />
 
         <!-- icons -->
-        <link
-            rel="stylesheet"
-            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-            crossorigin="anonymous"
-        />
+        <script src="https://kit.fontawesome.com/3be874c9a8.js" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="assets/css/style.css">
 
         <script
             src="scripts/controller/controllerIndex.js"
@@ -80,7 +77,7 @@
                     />
                 </div>
             </div>
-
+            <i class="fa-solid fa-circle-trash"></i>
             <br />
 
             <div class="btn-group">
@@ -107,9 +104,9 @@
             <br />
 
             <div class="container">
-                <h6>Total Records:</h6>
-                <h6>Mark Records:</h6>
-                <h6>Unmark Records:</h6>
+                <h6>Total Records: <span id="totalRec">0</span></h6>
+                <h6>Mark Records: <span id="markRec">0</span></h6>
+                <h6>Unmark Records: <span id="unmarkRec">0</span></h6>
             </div>
 
             <table class="table">
