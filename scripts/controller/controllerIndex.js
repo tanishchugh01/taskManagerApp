@@ -1,5 +1,6 @@
 //import Task  from "../model/task.js";
 import { taskOperations } from "../model/taskOperations.js";
+
 window.addEventListener("load", myMain);
 
 function myMain() {
@@ -35,9 +36,9 @@ function printTask(task) {
     }
     
     var oper=tr.insertCell(cellNumber);
-    
-    oper.appendChild(createIcon('deleteIcon','trash',toggleDelete));
-    oper.appendChild(createIcon('edit','pen-to-square',editTask));
+
+    oper.appendChild(createIcon(task.id,'trash',toggleDelete));
+    oper.appendChild(createIcon(task.id,'pen-to-square',editTask));
 }
 
 function createIcon(id,className,func)
@@ -45,7 +46,7 @@ function createIcon(id,className,func)
     let icon=document.createElement('i');
     
     icon.className=`fa-solid fa-${className} me-2`;
-    icon.id=id;
+    icon.setAttribute('task-id',id);
     icon.addEventListener('click',func);
     
     return icon;
@@ -59,11 +60,15 @@ function  showCount()
 }
 
 function toggleDelete(){
-    console.log(this,"is deleted..haww");
+    var taskId=this.getAttribute('task-id');
+    
+    console.log(`task ${taskId} is deleted..haww`);
 }
 
 function editTask(){
-    console.log(this,"is edited")
+    var taskId=this.getAttribute('task-id');
+        
+    console.log(`task ${taskId} is edited`);
 }
 
 console.log("running");
