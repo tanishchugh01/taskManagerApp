@@ -36,15 +36,18 @@ function printTask(task) {
     
     var oper=tr.insertCell(cellNumber);
     
-    oper.appendChild(createIcon('trash'));
-    oper.appendChild(createIcon('pen-to-square'));
+    oper.appendChild(createIcon('deleteIcon','trash',toggleDelete));
+    oper.appendChild(createIcon('edit','pen-to-square',editTask));
 }
 
-function createIcon(name)
+function createIcon(id,className,func)
 {
     let icon=document.createElement('i');
     
-    icon.className=`fa-solid fa-${name}`;
+    icon.className=`fa-solid fa-${className} me-2`;
+    icon.id=id;
+    icon.addEventListener('click',func);
+    
     return icon;
 }
 
@@ -53,6 +56,14 @@ function  showCount()
     document.querySelector('#totalRec').innerText=taskOperations.tasks.length;
     document.querySelector('#markRec').innerText=0;
     document.querySelector('#unmarkRec').innerText=0;
+}
+
+function toggleDelete(){
+    console.log(this,"is deleted..haww");
+}
+
+function editTask(){
+    console.log(this,"is edited")
 }
 
 console.log("running");
