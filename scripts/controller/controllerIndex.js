@@ -28,6 +28,11 @@ function printTask(task) {
 
     var cellNumber = 0;
     for (var key in task) {
+
+        if(key==='markAsDeleted')
+        {
+            continue;
+        }
         var th = tr.insertCell(cellNumber);
 
         th.innerHTML = task[key];
