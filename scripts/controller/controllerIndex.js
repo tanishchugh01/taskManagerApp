@@ -34,41 +34,54 @@ function printTask(task) {
 
         cellNumber++;
     }
-    
-    var oper=tr.insertCell(cellNumber);
 
-    oper.appendChild(createIcon(task.id,'trash',toggleDelete));
-    oper.appendChild(createIcon(task.id,'pen-to-square',editTask));
+    var oper = tr.insertCell(cellNumber);
+
+    oper.appendChild(createIcon(task.id, "trash", toggleDelete));
+    oper.appendChild(createIcon(task.id, "pen-to-square", editTask));
 }
 
-function createIcon(id,className,func)
-{
-    let icon=document.createElement('i');
-    
-    icon.className=`fa-solid fa-${className} me-2`;
-    icon.setAttribute('task-id',id);
-    icon.addEventListener('click',func);
-    
+function createIcon(id, className, func) {
+    let icon = document.createElement("i");
+
+    icon.className = `fa-solid fa-${className} me-2 hand`;
+    icon.setAttribute("task-id", id);
+    icon.addEventListener("click", func);
+
     return icon;
 }
 
-function  showCount()
-{
-    document.querySelector('#totalRec').innerText=taskOperations.tasks.length;
-    document.querySelector('#markRec').innerText=0;
-    document.querySelector('#unmarkRec').innerText=0;
+function showCount() {
+    document.querySelector("#totalRec").innerText = taskOperations.tasks.length;
+
+    updateMarkedUnmarked();
 }
 
-function toggleDelete(){
-    var taskId=this.getAttribute('task-id');
-    
-    console.log(`task ${taskId} is deleted..haww`);
+function toggleDelete() {
+    var taskId = this.getAttribute("task-id");
+
+    var icon = this;
+    var row = icon.parentNode.parentNode;
+
+    row.classList.toggle("alert-danger");
+
+    taskOperations.markAsDeleted(taskId);
+
+    updateMarkedUnmarked();
 }
 
-function editTask(){
-    var taskId=this.getAttribute('task-id');
-        
+function editTask() {
+    var taskId = this.getAttribute("task-id");
+
     console.log(`task ${taskId} is edited`);
+}
+
+function updateMarkedUnmarked() {
+    var marked = document.querySelector("#markRec");
+    var unmarked = document.querySelector("#unmarkRec");
+
+    marked.innerText = taskOperations.countDeletedMarked();
+    unmarked.innerText = taskOperations.countDeletedUnmarked();
 }
 
 console.log("running");
