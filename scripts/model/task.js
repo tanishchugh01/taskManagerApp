@@ -7,4 +7,8 @@ function Task(id, name, description, date, url) {
     this.markAsDeleted = false;
 }
 
+Task.prototype.toggle=function(){
+    this.markAsDeleted=!this.markAsDeleted;
+}
+
 export default Task;
