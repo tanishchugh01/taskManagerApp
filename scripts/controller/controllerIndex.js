@@ -11,8 +11,9 @@ function myMain() {
 function eventListeners() {
   document.querySelector("#add").addEventListener("click", addTask);
   document
-    .querySelector("#delete")
+    .querySelector( "#delete")
     .addEventListener("click", deleteAllMarkedTasks);
+  document.querySelector("#clearAll").addEventListener("click", clearAllTasks);
 }
 
 function addTask() {
@@ -57,7 +58,7 @@ function createIcon(id, className, func) {
 
   icon.className = `fa-solid fa-${className} me-2 hand`;
   icon.setAttribute("task-id", id);
-  icon.setAttribute("role", 'button');
+  icon.setAttribute("role", "button");
   icon.addEventListener("click", func);
 
   return icon;
@@ -93,6 +94,7 @@ function updateMarkedUnmarked() {
   var unmarked = document.querySelector("#unmarkRec");
 
   var markedCount = taskOperations.countDeletedMarked();
+
   marked.innerText = markedCount;
   unmarked.innerText = taskOperations.countDeletedUnmarked();
 
@@ -109,7 +111,13 @@ function deleteAllMarkedTasks() {
   showCount();
 }
 
-function clearFields() {}
+function clearAllTasks() {
+  taskOperations.clearAll();
+
+  document.querySelector("#taskBody").replaceChildren();
+
+  showCount();
+}
 
 function disableDeleteButton() {
   document.querySelector("#delete").setAttribute("disabled", "");
